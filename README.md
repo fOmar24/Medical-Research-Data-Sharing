@@ -2,7 +2,7 @@
 
 
 
-MedChain is a decentralized platform for secure, private, and controlled sharing of medical research data using Sui blockchain technology and Zero-Knowledge Proofs.
+MedChain is a decentralized platform for secure, private, and controlled sharing of medical research data using Sui blockchain technology, Walrus and Zero-Knowledge Proofs.
 
 ## 🌟 Features
 
