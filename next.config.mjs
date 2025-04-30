@@ -15,7 +15,7 @@ const nextConfig = {
   
   // Enable server actions
   experimental: {
-    serverActions: true,
+    serverActions: {}
   },
   eslint: {
     ignoreDuringBuilds: true,
