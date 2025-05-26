@@ -1,7 +1,7 @@
 'use client'
 
 import { ThemeProvider } from "@/components/theme-provider"
-import { WalletProvider } from "@/components/wallet-provider"
+import WalletProviderWrapper from "@/components/WalletWrapper"
 
 export default function RootLayoutClient({
   children,
@@ -10,7 +10,7 @@ export default function RootLayoutClient({
 }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-      <WalletProvider>{children}</WalletProvider>
+      <WalletProviderWrapper>{children}</WalletProviderWrapper>
     </ThemeProvider>
   )
 }
