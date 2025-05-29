@@ -4,9 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { DatabaseIcon, UsersIcon, ClockIcon, FileTextIcon, LockIcon, UnlockIcon, AlertCircleIcon } from "lucide-react"
-import { useWallet } from "@/lib/sui-wallet"
 import { LayoutWithSidebar } from "@/components/layout-with-sidebar"
 import Link from "next/link"
+import { useCurrentAccount } from "@mysten/dapp-kit"
 
 // Mock data for demonstration
 const myDatasets = [
@@ -104,7 +104,10 @@ const recentActivity = [
 ]
 
 export default function Dashboard() {
-  const { connected, connecting, account } = useWallet()
+
+  const account = useCurrentAccount();
+  
+  const connected = !!account;
 
   return (
     <LayoutWithSidebar>

@@ -3,26 +3,34 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { WalletModal } from "@/components/wallet-modal"
-import { useWallet } from "@/lib/sui-wallet"
-import { WalletIcon } from "lucide-react"
+import { useCurrentAccount } from '@mysten/dapp-kit';
+import { ConnectButton } from "@mysten/dapp-kit"
 
 export function WalletButton() {
-  const { connected, account } = useWallet()
+  const account = useCurrentAccount();
+
+  const isConnected = !!account;
 
   return (
-    <WalletModal
-      trigger={
-        connected ? (
-          <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200 px-3 py-1 cursor-pointer">
-            {account?.substring(0, 6)}...{account?.substring(account.length - 4)}
-          </Badge>
+    <div>
+      <WalletModal
+        trigger={
+          isConnected ? (
+            <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200 px-3 py-1 cursor-pointer">
+              {account?.address.substring(0, 6)}...{account?.address.substring(account.address.length - 4)}
+            </Badge>
+          ) : (
+            <ConnectButton />
+          )
+        }
+      />
+      <div className="mt-2 text-sm">
+        {isConnected ? (
+          <span className="text-green-600">Wallet Connected</span>
         ) : (
-          <Button variant="outline" className="flex items-center gap-2">
-            <WalletIcon className="h-4 w-4" />
-            Connect Wallet
-          </Button>
-        )
-      }
-    />
+          <span className="text-red-600">Wallet Not Connected</span>
+        )}
+      </div>
+    </div>
   )
 }

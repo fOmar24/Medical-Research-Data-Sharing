@@ -9,6 +9,7 @@ interface WalletBackendState {
   sessionToken: string | null
   sessionExpiry: Date | null
   profile: {
+    organization: string
     id: number
     walletAddress: string
     name?: string

@@ -1,9 +1,9 @@
 'use client'
 
-import { ThemeProvider } from "@/components/theme-provider"
-import WalletProviderWrapper from "@/components/WalletWrapper"
+import { ThemeProvider } from '../../components/theme-provider'
+import WalletProviderWrapper from '@/components/WalletWrapper'
 
-export default function RootLayoutClient({
+export default function LandingLayout({
   children,
 }: {
   children: React.ReactNode
